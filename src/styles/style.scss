@@ -1,0 +1,446 @@
+@import "~bootstrap/scss/bootstrap";
+@import '../assets/fonts/fonts.css';
+@import './colors.scss';
+
+html, body {
+  font-family: 'Nunito', sans-serif;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+.row-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+.aside__toggle {
+  position: absolute;
+  display: none;
+  z-index: 8;
+  left: 5px;
+  top: 5px;
+
+}
+
+.sideBar {
+  width: 15%;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+
+    &_item {
+      width: 100%;
+
+      a {
+        display: block;
+        font-size: 14px;
+        line-height: 19px;
+        color: $dimBlue;
+        padding: 15px 20px;
+        width: 100%;
+        border-left: solid 2px transparent;
+        border-radius: 0 !important;
+
+        &:hover {
+          background-color: $lightGrayOpacity;
+          border-color: $purpleBlue;
+        }
+
+        &.active {
+          background-color: $lightGrayOpacity !important;
+          border-color: $purpleBlue !important;
+          color: inherit !important;
+        }
+      }
+    }
+  }
+}
+
+main {
+  width: 85%;
+  padding: 110px 34px;
+  background-color: $lightGray;
+  min-height: 100vh;
+}
+
+.tables {
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+
+  &__content {
+    width: 100%;
+
+    tbody {
+      width: 100%;
+
+      .table__headings {
+        width: 100%;
+        background-color: $purpleBlue;
+        border: $tableBorder;
+
+        td {
+          text-align: right;
+          font-size: 12px;
+          padding: 8px 8px 8px 0;
+          color: $deepGray;
+
+          img {
+            width: 12px;
+            height: 12px;
+          }
+        }
+
+        &_AvgCharge {
+          width: 17%;
+        }
+
+        &_cpt, &_type, &_frequency,
+        &_amount, &_minCharge, &_maxCharge {
+          border-right: $tableBorder;
+        }
+      }
+
+      .table__details {
+        width: 100%;
+        border: $tableBorder;
+
+        &.odd {
+          background-color: $white;
+        }
+
+        &.even {
+          background-color: $lightPurpleBlueOpacity;
+        }
+
+        td {
+          text-align: right;
+          font-size: 12px;
+          padding: 4px 8px 4px 0;
+          color: $deepGray;
+        }
+
+        &_srcntrl {
+          padding: 4px 0 !important;
+          text-align: center !important;
+
+          span {
+            color: #ffffff;
+            background-color: orange;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 160%;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 12px;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+
+        &_AvgCharge {
+          width: 17%;
+        }
+
+        &_srno, &_cpt, &_type, &_frequency,
+        &_amount, &_minCharge, &_maxCharge, &_srcntrl {
+          border-right: $tableBorder;
+        }
+      }
+    }
+  }
+}
+
+.table__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+  width: 100%;
+
+  &_item {
+
+    span:not(.disabled_item) {
+      font-size: 12px;
+      line-height: 160%;
+      color: #34475C;
+      display: inline-block;
+      padding: 6px 11px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    a {
+      font-size: 12px;
+      line-height: 160%;
+      color: #34475C;
+      display: inline-block;
+      padding: 6px 11px;
+      border-radius: 2px;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      &.active_item {
+        background-color: $deepPurple;
+        color: $white;
+      }
+    }
+
+    .disabled_item {
+      user-select: none;
+    }
+  }
+}
+
+.subtable__table {
+  padding: 0 !important;
+
+  &:nth-child(2n + 1) {
+    background-color: $white;
+  }
+}
+
+.subtable__container {
+  padding-bottom: 20px;
+}
+
+.subtable__content {
+  width: 100%;
+
+  .subtable__headings {
+    background-color: $orangeOpacity;
+    border: $tableBorder;
+
+    td {
+      text-align: right;
+      font-size: 12px;
+      padding: 8px 8px 8px 0;
+      color: #34475C;
+      border-right: $tableBorder;
+    }
+
+    &_no {
+      padding: 8px 2px 8px 2px !important;
+      width: 3.25%;
+    }
+  }
+
+  .subtable__details {
+    border: $tableBorder;
+
+    &.odd {
+      background-color: $white;
+    }
+
+    &.even {
+      background-color: $lightPurpleBlueOpacity;
+    }
+
+    td {
+      text-align: right;
+      font-size: 12px;
+      padding: 4px 8px 4px 0;
+      color: #34475C;
+      border-right: $tableBorder
+    }
+
+    &_no {
+      width: 3.25%;
+    }
+
+    &_details {
+      span {
+        background-color: $deepPurple;
+        color: $white;
+        display: inline-block;
+        padding: 0 8px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.subtable__pagination {
+  display: flex;
+  padding: 0 !important;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+
+  &_item {
+    margin: 0 12.5px;
+
+    a, span {
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 160%;
+      color: $gray;
+
+      &.active:not(span) {
+        color: $deepGray;
+      }
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    span {
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:not(:first-child),
+      &:not(:last-child) {
+        user-select: none;
+      }
+    }
+  }
+}
+
+
+//modal styling
+.custom-dialog {
+  max-width: calc(100vw - 20px);
+
+  .modal-header {
+    border: none;
+  }
+
+  .modal-title {
+    font-size: 22px;
+    line-height: 30px;
+    color: #28476B;
+
+  }
+
+  .modal-body {
+    .detail__heading {
+      font-size: 12px;
+      line-height: 160%;
+      color: $deepPurple;
+    }
+
+    .detail__description {
+      font-size: 12px;
+      line-height: 150%;
+      color: $dimBlue;
+    }
+  }
+}
+
+.modal-table {
+  &__content {
+    width: 100%;
+
+    tbody {
+      width: 100%;
+    }
+
+    .modal-table__headings {
+      width: 100%;
+      background-color: $purpleBlue;
+      border: $tableBorder;
+      td {
+        text-align: right;
+        font-size: 12px;
+        padding: 4px 8px 4px 0;
+        color: $deepGray;
+        border-right: $tableBorder;
+
+      }
+    }
+
+    .modal-table__details {
+      border: $tableBorder;
+      &:nth-of-type(2n + 1) {
+        background-color: $lightPurpleBlueOpacity;
+      }
+
+      td {
+        text-align: right;
+        font-size: 12px;
+        padding: 4px 8px 4px 0;
+        color: $deepGray;
+        border-right: $tableBorder;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 1500px) {
+  .modal-table {
+    width: 100%;
+    overflow-x: scroll;
+
+    &__content {
+      width: 1440px;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 1325px) {
+  #table1, #table2, #table3 {
+    width: 100%;
+
+    .table {
+      overflow-x: scroll;
+
+      table.table__content {
+        width: 1300px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  main {
+    width: 100%;
+  }
+  .aside__toggle {
+    display: block;
+    border: none;
+    background-color: grey;
+    border-radius: 5px;
+    color: $white;
+    transform: rotateY(0);
+    transition: transform .4s ease-in-out;
+  }
+  .aside__toggle.isHidden {
+    transform: rotateY(180deg);
+  }
+  .sideBar {
+    background-color: $white;
+    position: absolute;
+    width: 240px;
+    z-index: 5;
+    height: 100vh;
+    padding-top: 30px;
+    transform: translateX(0);
+    transition: transform .4s ease-in-out;
+  }
+  .sideBar.isHidden {
+    transform: translateX(-100%);
+  }
+
+}
